@@ -11,7 +11,7 @@ import React, {Fragment} from 'react';
 import Hoge from './components/Hoge';
 
 const App = () => {
-  return <Hoge isShow={true} />;
+  return <Hoge isShow={false} />;
 };
 
 export default App;
