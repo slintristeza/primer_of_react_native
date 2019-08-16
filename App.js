@@ -10,6 +10,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import Hoge from './components/Hoge';
+import ExampleList from './components/ExampleList';
 
 const callback = text => {
   // eslint-disable-next-line no-alert
@@ -18,14 +19,15 @@ const callback = text => {
 
 const App = () => {
   return (
-    // <View style={styles.container}>
-    //   <Hoge isShow={false} callback={callback} />
-    // </View>
-    <View style={{flex: 1, flexDirection:"row"}}>
-      <View style={{flex: 1, backgroundColor: 'red'}} />
-      <View style={{flex: 2, backgroundColor: 'blue'}} />
-      <View style={{flex: 3, backgroundColor: 'green'}} />
+    <View style={styles.container}>
+      <ExampleList />
+      <Hoge isShow={false} callback={callback} />
     </View>
+    // <View style={{flex: 1, flexDirection:"row"}}>
+    //   <View style={{flex: 1, backgroundColor: 'red'}} />
+    //   <View style={{flex: 2, backgroundColor: 'blue'}} />
+    //   <View style={{flex: 3, backgroundColor: 'green'}} />
+    // </View>
   );
 };
 
