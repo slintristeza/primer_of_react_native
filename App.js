@@ -18,8 +18,13 @@ const callback = text => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Hoge isShow={false} callback={callback} />
+    // <View style={styles.container}>
+    //   <Hoge isShow={false} callback={callback} />
+    // </View>
+    <View style={{flex: 1, flexDirection:"row"}}>
+      <View style={{flex: 1, backgroundColor: 'red'}} />
+      <View style={{flex: 2, backgroundColor: 'blue'}} />
+      <View style={{flex: 3, backgroundColor: 'green'}} />
     </View>
   );
 };
