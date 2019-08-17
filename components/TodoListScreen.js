@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default class TodoListScreen extends Component {
