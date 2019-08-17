@@ -6,38 +6,23 @@
  * @flow
  */
 
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {Component} from 'react';
+import {StackNavigator} from 'react-navigation';
 
-import Hoge from './components/Hoge';
-import ExampleList from './components/ExampleList';
+import TodoListScreen from './components/TodoListScreen';
+type Props = {};
 
-const callback = text => {
-  // eslint-disable-next-line no-alert
-  alert(`Callback from component text=${text}`);
-};
+export default class App extends Component<Props> {
+  render() {
+    return <TodoNavigator />;
+  }
+}
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <ExampleList />
-      <Hoge isShow={false} callback={callback} />
-    </View>
-    // <View style={{flex: 1, flexDirection:"row"}}>
-    //   <View style={{flex: 1, backgroundColor: 'red'}} />
-    //   <View style={{flex: 2, backgroundColor: 'blue'}} />
-    //   <View style={{flex: 3, backgroundColor: 'green'}} />
-    // </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const TodoNavigator = StackNavigator(
+  {
+    TodoList: {screen: TodoListScreen},
   },
-});
-
-export default App;
+  {
+    initialRouteName: 'TodoList',
+  },
+);
