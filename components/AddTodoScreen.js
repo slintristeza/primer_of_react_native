@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   textInput: {
-    borderColor: 'gary',
+    borderColor: 'gray',
     borderBottomWidth: 1,
   },
 });
