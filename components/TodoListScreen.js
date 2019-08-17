@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {Button, StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default class TodoListScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      lastKey: 4,
       todoList: [
         {
           key: '1',
@@ -28,6 +29,21 @@ export default class TodoListScreen extends Component {
         },
       ],
     };
+    this.addItem = this.addItem.bind(this);
+  }
+  tapAddButton() {
+    const key = this.state.lastKey + 1;
+    this.setState({listKey: key});
+    this.props.navigation.navigate('AddTodo', {
+      callback: this.addItem,
+      key: `${key}`,
+    });
+  }
+  addItem(item) {
+    console.log(`addItem item.key=${item.key} title=${item.title}`);
+    let {todoList} = this.state;
+    todoList.push(item);
+    this.setState({todoList: todoList.map(item => item)});
   }
   render() {
     const {todoList} = this.state;
@@ -46,6 +62,7 @@ export default class TodoListScreen extends Component {
             );
           }}
         />
+        <Button title="追加" onPress={() => this.tapAddButton()} />
       </View>
     );
   }
