@@ -47,6 +47,12 @@ export default class TodoListScreen extends Component {
       editItem,
     });
   }
+  tapDeleteButton(deleteItem) {
+    let {todoList} = this.state;
+    this.setState({
+      todoList: todoList.filter(item => item.key != deleteItem.key),
+    });
+  }
   addItem(item) {
     console.log(`addItem item.key=${item.key} title=${item.title}`);
     let {todoList} = this.state;
@@ -83,6 +89,10 @@ export default class TodoListScreen extends Component {
                   {item.memo}
                 </Text>
                 <Button title="編集" onPress={() => this.tapEditButton(item)} />
+                <Button
+                  title="削除"
+                  onPress={() => this.tapDeleteButton(item)}
+                />
               </View>
             );
           }}
