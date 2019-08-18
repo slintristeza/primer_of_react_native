@@ -42,7 +42,7 @@ export default class TodoListScreen extends Component {
   }
   tapEditButton(editItem) {
     console.log(`editItem.key=${editItem.key}`);
-    this.props.navigation.navigati('AddTodo', {
+    this.props.navigation.navigate('AddTodo', {
       callback: this.editItem,
       editItem,
     });
@@ -59,7 +59,9 @@ export default class TodoListScreen extends Component {
     let {todoList} = this.state;
     const i = todoList.findIndex(item => item.key === updateItem.key);
     todoList[i] = updateItem;
-    this.setState({todoList: todoList.map(item => item)});
+    this.setState({
+      todoList: todoList.map(item => item),
+    });
   }
   render() {
     const {todoList} = this.state;
